@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class WordCounterWithLoop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = scanner.nextLine();
+
+        int wordCount = 0;
+        boolean inWord = false;
+
+        for (int i = 0; i < sentence.length(); i++) {
+            char ch = sentence.charAt(i);
+
+            if (Character.isLetterOrDigit(ch)) {
+                if (!inWord) {
+                    wordCount++;
+                    inWord = true;
+                }
+            } else {
+                inWord = false;
+            }
+        }
+
+        System.out.println("The sentence contains " + wordCount + " word(s).");
+        scanner.close();
+    }
+}
